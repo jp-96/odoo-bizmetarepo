@@ -62,24 +62,4 @@ class DataDomain(models.Model):
     name = fields.Char(string="名称", required=True)
     description = fields.Text(string="説明")
 
-    value_ids = fields.One2many(
-        "biz001.data_domain_value",
-        "domain_id",
-        string="ドメイン値",
-    )
 
-
-# ----------------------------
-# 列挙型ドメイン値
-# ----------------------------
-class DataDomainValue(models.Model):
-    _name = "biz001.data_domain_value"
-    _description = "biz001 データドメイン値（列挙型）"
-
-    name = fields.Char(string="値", required=True)
-
-    domain_id = fields.Many2one(
-        "biz001.data_domain",
-        string="データドメイン",
-        required=True,
-    )
