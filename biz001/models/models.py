@@ -62,4 +62,10 @@ class DataDomain(models.Model):
     name = fields.Char(string="名称", required=True)
     description = fields.Text(string="説明")
 
+    item_ids = fields.One2many(
+        "biz001.data_item",
+        "domain_id",
+        string="関連データ項目",
+    )
+
 
