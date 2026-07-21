@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- サブジェクト領域：リストビュー -->
+    <record id="view_subject_area_list" model="ir.ui.view">
+        <field name="name">ems.cdm.subject_area.list</field>
+        <field name="model">ems.cdm.subject_area</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="description"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- サブジェクト領域：フォームビュー -->
+    <record id="view_subject_area_form" model="ir.ui.view">
+        <field name="name">ems.cdm.subject_area.form</field>
+        <field name="model">ems.cdm.subject_area</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="description"/>
+                    </group>
+
+                    <notebook>
+                        <page string="エンティティ">
+                            <field name="entity_ids">
+                                <list editable="bottom">
+                                    <field name="name"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- アクション -->
+    <record id="action_subject_area" model="ir.actions.act_window">
+        <field name="name">サブジェクト領域</field>
+        <field name="res_model">ems.cdm.subject_area</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>

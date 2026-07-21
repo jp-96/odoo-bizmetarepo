@@ -28,6 +28,7 @@ Long description of module's purpose
         'views/entity_views.xml',
         'views/attribute_domain_views.xml',
         'views/attribute_views.xml',
+        'views/uml_generator_views.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

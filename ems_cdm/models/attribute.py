@@ -1,0 +1,20 @@
+from odoo import models, fields
+
+
+class Attribute(models.Model):
+    _name = "ems.cdm.attribute"
+    _description = "属性"
+
+    name = fields.Char(string="名称", required=True)
+
+    entity_id = fields.Many2one(
+        "ems.cdm.entity",
+        string="エンティティ",
+        required=True,
+    )
+
+    domain_id = fields.Many2one(
+        "ems.cdm.attribute_domain",
+        string="属性ドメイン",
+        required=True,
+    )
