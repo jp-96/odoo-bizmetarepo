@@ -29,10 +29,19 @@ Long description of module's purpose
         'views/attribute_domain_views.xml',
         'views/attribute_views.xml',
         'views/uml_generator_views.xml',
+        # TODO: delete the demo data after testing
+        'demo/subject_area_demo.xml',
+        'demo/entity_demo.xml',
+        'demo/attribute_domain_demo.xml',
+        'demo/attribute_demo.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
         'demo/demo.xml',
+        'demo/subject_area_demo.xml',
+        'demo/entity_demo.xml',
+        'demo/attribute_domain_demo.xml',
+        'demo/attribute_demo.xml',
     ],
 }
 

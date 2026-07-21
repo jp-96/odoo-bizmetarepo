@@ -6,7 +6,6 @@ class SubjectArea(models.Model):
     _description = "サブジェクト領域"
 
     name = fields.Char(string="名称", required=True)
-    description = fields.Text(string="説明")
 
     entity_ids = fields.One2many(
         "ems.cdm.entity",

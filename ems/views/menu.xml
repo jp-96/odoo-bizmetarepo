@@ -12,11 +12,6 @@
               parent="menu_ems_root"
               sequence="20"/>
 
-    <menuitem id="menu_ems_cdm_subject_area"
-              name="サブジェクト領域"
-              parent="menu_ems_cdm"
-              action="ems_cdm.action_subject_area"/>
-
     <menuitem id="menu_ems_cdm_entity"
               name="エンティティ"
               parent="menu_ems_cdm"
@@ -31,6 +26,11 @@
               name="属性ドメイン"
               parent="menu_ems_cdm"
               action="ems_cdm.action_attribute_domain"/>
+
+    <menuitem id="menu_ems_cdm_subject_area"
+              name="サブジェクト領域"
+              parent="menu_ems_cdm"
+              action="ems_cdm.action_subject_area"/>
 
     <menuitem id="menu_ems_cdm_uml_generator"
               name="UML 生成"
