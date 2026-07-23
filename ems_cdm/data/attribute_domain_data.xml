@@ -1,0 +1,122 @@
+<odoo>
+
+    <!-- 「属性」関連 -->
+    <record id="domain_relation_attribute" model="ems.cdm.attribute_domain">
+        <field name="name">「属性」関連</field>
+        <field name="description">属性への関連を表すドメイン</field>
+        <field name="data_type">relation</field>
+        <field name="relation_entity_id" ref="entity_attribute"/>
+    </record>
+
+    <!-- 「データ要素」継承 -->
+    <record id="domain_extended_data_element" model="ems.cdm.attribute_domain">
+        <field name="name">「データ要素」継承</field>
+        <field name="description">データ要素を継承するドメイン</field>
+        <field name="data_type">extended</field>
+        <field name="relation_entity_id" ref="entity_data_element"/>
+    </record>
+
+    <!-- 「エンティティ」参照 -->
+    <record id="domain_reference_entity" model="ems.cdm.attribute_domain">
+        <field name="name">「エンティティ」参照</field>
+        <field name="description">エンティティへの参照を表すドメイン</field>
+        <field name="data_type">reference</field>
+        <field name="relation_entity_id" ref="entity_conceptual_entity"/>
+    </record>
+
+    <!-- 「エンティティ」関連 -->
+    <record id="domain_relation_entity" model="ems.cdm.attribute_domain">
+        <field name="name">「エンティティ」関連</field>
+        <field name="description">エンティティへの関連を表すドメイン</field>
+        <field name="data_type">relation</field>
+        <field name="relation_entity_id" ref="entity_conceptual_entity"/>
+    </record>
+
+    <!-- 「オブジェクトクラス」関連 -->
+    <record id="domain_relation_object_class" model="ems.cdm.attribute_domain">
+        <field name="name">「オブジェクトクラス」関連</field>
+        <field name="description">オブジェクトクラスへの関連を表すドメイン</field>
+        <field name="data_type">relation</field>
+        <field name="relation_entity_id" ref="entity_object_class"/>
+    </record>
+
+    <!-- レコード名称（文字列系） -->
+    <record id="domain_record_name" model="ems.cdm.attribute_domain">
+        <field name="name">レコード名称</field>
+        <field name="description">レコードの名称を表す文字列ドメイン</field>
+        <field name="data_type">string</field>
+    </record>
+
+    <!-- 「サブジェクト領域」関連 -->
+    <record id="domain_relation_subject_area" model="ems.cdm.attribute_domain">
+        <field name="name">「サブジェクト領域」関連</field>
+        <field name="description">サブジェクト領域への関連を表すドメイン</field>
+        <field name="data_type">relation</field>
+        <field name="relation_entity_id" ref="entity_subject_area"/>
+    </record>
+
+    <!-- 「属性ドメイン」関連 -->
+    <record id="domain_relation_attribute_domain" model="ems.cdm.attribute_domain">
+        <field name="name">「属性ドメイン」関連</field>
+        <field name="description">属性ドメインへの関連を表すドメイン</field>
+        <field name="data_type">relation</field>
+        <field name="relation_entity_id" ref="entity_attribute_domain"/>
+    </record>
+
+    <!-- 「値ドメイン」関連 -->
+    <record id="domain_relation_value_domain" model="ems.cdm.attribute_domain">
+        <field name="name">「値ドメイン」関連</field>
+        <field name="description">値ドメインへの関連を表すドメイン</field>
+        <field name="data_type">relation</field>
+        <field name="relation_entity_id" ref="entity_value_domain"/>
+    </record>
+
+    <!-- 「属性ドメイン」参照 -->
+    <record id="domain_reference_attribute_domain" model="ems.cdm.attribute_domain">
+        <field name="name">「属性ドメイン」参照</field>
+        <field name="description">属性ドメインへの参照を表すドメイン</field>
+        <field name="data_type">reference</field>
+        <field name="relation_entity_id" ref="entity_attribute_domain"/>
+    </record>
+
+    <!-- 「システム」関連 -->
+    <record id="domain_relation_system" model="ems.cdm.attribute_domain">
+        <field name="name">「システム」関連</field>
+        <field name="description">システムへの関連を表すドメイン</field>
+        <field name="data_type">relation</field>
+        <field name="relation_entity_id" ref="entity_system"/>
+    </record>
+
+    <!-- 「データモデル」関連 -->
+    <record id="domain_relation_data_model" model="ems.cdm.attribute_domain">
+        <field name="name">「データモデル」関連</field>
+        <field name="description">データモデルへの関連を表すドメイン</field>
+        <field name="data_type">relation</field>
+        <field name="relation_entity_id" ref="entity_data_model"/>
+    </record>
+
+    <!-- 「データドメイン」関連 -->
+    <record id="domain_relation_data_domain" model="ems.cdm.attribute_domain">
+        <field name="name">「データドメイン」関連</field>
+        <field name="description">データドメインへの関連を表すドメイン</field>
+        <field name="data_type">relation</field>
+        <field name="relation_entity_id" ref="entity_data_domain"/>
+    </record>
+
+    <!-- 「オブジェクトクラス」参照 -->
+    <record id="domain_reference_object_class" model="ems.cdm.attribute_domain">
+        <field name="name">「オブジェクトクラス」参照</field>
+        <field name="description">オブジェクトクラスへの参照を表すドメイン</field>
+        <field name="data_type">reference</field>
+        <field name="relation_entity_id" ref="entity_object_class"/>
+    </record>
+
+    <!-- 「値ドメイン」参照 -->
+    <record id="domain_reference_value_domain" model="ems.cdm.attribute_domain">
+        <field name="name">「値ドメイン」参照</field>
+        <field name="description">値ドメインへの参照を表すドメイン</field>
+        <field name="data_type">reference</field>
+        <field name="relation_entity_id" ref="entity_value_domain"/>
+    </record>
+
+</odoo>
