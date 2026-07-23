@@ -10,11 +10,16 @@ class Entity(models.Model):
     subject_area_id = fields.Many2one(
         "ems.cdm.subject_area",
         string="サブジェクト領域",
-        required=False,
     )
 
     attribute_ids = fields.One2many(
         "ems.cdm.attribute",
         "entity_id",
         string="属性",
+    )
+
+    reference_ids = fields.One2many(
+        "ems.cdm.entity_reference",
+        "source_entity_id",
+        string="参照リンク",
     )

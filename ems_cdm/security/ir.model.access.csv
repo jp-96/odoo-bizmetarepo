@@ -1,6 +1,7 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_ems_cdm_subject_area,ems_cdm.subject_area,model_ems_cdm_subject_area,base.group_user,1,1,1,1
 access_ems_cdm_entity,ems_cdm.entity,model_ems_cdm_entity,base.group_user,1,1,1,1
+access_ems_cdm_entity_reference,ems_cdm.entity_reference,model_ems_cdm_entity_reference,base.group_user,1,1,1,1
 access_ems_cdm_attribute_domain,ems_cdm.attribute_domain,model_ems_cdm_attribute_domain,base.group_user,1,1,1,1
 access_ems_cdm_attribute,ems_cdm.attribute,model_ems_cdm_attribute,base.group_user,1,1,1,1
 access_ems_cdm_uml_generator,ems_cdm.uml_generator,model_ems_cdm_uml_generator,base.group_user,1,1,1,1

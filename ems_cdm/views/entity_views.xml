@@ -34,6 +34,16 @@
                                 </list>
                             </field>
                         </page>
+
+                        <!-- 参照リンクタブ -->
+                        <page string="参照リンク">
+                            <field name="reference_ids">
+                                <list editable="bottom">
+                                    <field name="target_entity_id"/>
+                                </list>
+                            </field>
+                        </page>
+
                     </notebook>
                 </sheet>
             </form>
