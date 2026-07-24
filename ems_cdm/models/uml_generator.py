@@ -92,8 +92,8 @@ class UmlGenerator(models.TransientModel):
         # ただし attribute_domain で既にリンクがある場合は出力しない
         # ---------------------------------------------------------
         for ref in References:
-            left_entity = ref.source_entity_id
-            right_entity = ref.target_entity_id
+            left_entity = ref.target_entity_id
+            right_entity = ref.source_entity_id
 
             if left_entity.subject_area_id:
                 left = f"{left_entity.subject_area_id.name}.{left_entity.name}"
@@ -112,7 +112,7 @@ class UmlGenerator(models.TransientModel):
                 continue
 
             # 点線矢印（reference）
-            lines.append(f'"{left}" ..> "{right}"')
+            lines.append(f'"{left}" <.. "{right}"')
 
         lines.append("@enduml")
 
