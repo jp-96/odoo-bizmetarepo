@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
 
-    <!-- UML 生成ウィザード -->
     <record id="view_uml_generator_form" model="ir.ui.view">
         <field name="name">ems.cdm.uml_generator.form</field>
         <field name="model">ems.cdm.uml_generator</field>
         <field name="arch" type="xml">
             <form string="UML Generator">
-                <footer>
+
+                <header>
                     <button name="generate_uml"
                             string="UML生成"
                             type="object"
@@ -15,24 +15,30 @@
                     <button string="閉じる"
                             class="btn-secondary"
                             special="cancel"/>
+                </header>
+                <footer>
                 </footer>
 
-                <group>
-                    <field name="uml_text"
-                           nolabel="1"
-                           readonly="1"/>
-                </group>
+                <sheet>
+                    <group>
+                        <field name="uml_png_url" invisible="0"/>
+                        <field name="uml_png" widget="image"/>
+                    </group>
+
+                    <group>
+                        <field name="uml_text" nolabel="1"/>
+                    </group>
+                </sheet>
+
             </form>
         </field>
     </record>
 
-    <!-- アクション -->
     <record id="action_uml_generator" model="ir.actions.act_window">
         <field name="name">UML 生成</field>
         <field name="res_model">ems.cdm.uml_generator</field>
         <field name="view_mode">form</field>
         <field name="target">new</field>
     </record>
-
 
 </odoo>
