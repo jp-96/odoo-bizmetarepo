@@ -26,6 +26,7 @@ Long description of module's purpose
         'views/templates.xml',
         'views/subject_area_views.xml',
         'views/entity_views.xml',
+        'views/entity_reference_views.xml',
         'views/attribute_domain_views.xml',
         'views/attribute_views.xml',
         'views/uml_generator_views.xml',
