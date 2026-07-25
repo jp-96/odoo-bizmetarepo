@@ -29,6 +29,8 @@ Long description of module's purpose
         'views/entity_reference_views.xml',
         'views/attribute_domain_views.xml',
         'views/attribute_views.xml',
+        'views/rule_views.xml',
+        'views/rule_target_views.xml',
         'views/uml_generator_views.xml',
         # TODO: delete the data after testing
         'data/subject_area_data.xml',

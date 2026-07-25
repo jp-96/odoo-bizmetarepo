@@ -37,6 +37,16 @@
               parent="menu_ems_cdm"
               action="ems_cdm.action_subject_area"/>
 
+    <menuitem id="menu_ems_cdm_rule"
+              name="ルール"
+              parent="menu_ems_cdm"
+              action="ems_cdm.action_rule"/>
+
+    <menuitem id="menu_ems_cdm_rule_target"
+              name="ルール対象"
+              parent="menu_ems_cdm"
+              action="ems_cdm.action_rule_target"/>
+
     <menuitem id="menu_ems_cdm_uml_generator"
               name="UML 生成"
               parent="menu_ems_cdm"

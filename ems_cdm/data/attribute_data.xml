@@ -28,13 +28,6 @@
         <field name="domain_id" ref="domain_relation_entity"/>
     </record>
 
-    <!-- エンティティ → オブジェクトクラス × 「エンティティ」参照 -->
-    <record id="attr_entity_reference" model="ems.cdm.attribute">
-        <field name="name">エンティティ</field>
-        <field name="entity_id" ref="entity_object_class"/>
-        <field name="domain_id" ref="domain_reference_entity"/>
-    </record>
-
     <!-- 名称 → 属性 × レコード名称 -->
     <record id="attr_record_name" model="ems.cdm.attribute">
         <field name="name">名称</field>
@@ -63,13 +56,6 @@
         <field name="domain_id" ref="domain_relation_value_domain"/>
     </record>
 
-    <!-- 属性ドメイン → 値ドメイン × 「属性ドメイン」参照 -->
-    <record id="attr_attribute_domain_reference" model="ems.cdm.attribute">
-        <field name="name">属性ドメイン</field>
-        <field name="entity_id" ref="entity_value_domain"/>
-        <field name="domain_id" ref="domain_reference_attribute_domain"/>
-    </record>
-
     <!-- システム → オブジェクトクラス × 「システム」関連 -->
     <record id="attr_system_relation" model="ems.cdm.attribute">
         <field name="name">システム</field>
@@ -89,20 +75,6 @@
         <field name="name">データドメイン</field>
         <field name="entity_id" ref="entity_data_item"/>
         <field name="domain_id" ref="domain_relation_data_domain"/>
-    </record>
-
-    <!-- オブジェクトクラス → データモデル × 「オブジェクトクラス」参照 -->
-    <record id="attr_object_class_reference" model="ems.cdm.attribute">
-        <field name="name">オブジェクトクラス</field>
-        <field name="entity_id" ref="entity_data_model"/>
-        <field name="domain_id" ref="domain_reference_object_class"/>
-    </record>
-
-    <!-- 値ドメイン → データドメイン × 「値ドメイン」参照 -->
-    <record id="attr_value_domain_reference" model="ems.cdm.attribute">
-        <field name="name">値ドメイン</field>
-        <field name="entity_id" ref="entity_data_domain"/>
-        <field name="domain_id" ref="domain_reference_value_domain"/>
     </record>
 
 </odoo>

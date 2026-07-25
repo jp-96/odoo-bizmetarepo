@@ -16,14 +16,6 @@
         <field name="relation_entity_id" ref="entity_data_element"/>
     </record>
 
-    <!-- 「エンティティ」参照 -->
-    <record id="domain_reference_entity" model="ems.cdm.attribute_domain">
-        <field name="name">「エンティティ」参照</field>
-        <field name="description">エンティティへの参照を表すドメイン</field>
-        <field name="data_type">reference</field>
-        <field name="relation_entity_id" ref="entity_conceptual_entity"/>
-    </record>
-
     <!-- 「エンティティ」関連 -->
     <record id="domain_relation_entity" model="ems.cdm.attribute_domain">
         <field name="name">「エンティティ」関連</field>
@@ -71,14 +63,6 @@
         <field name="relation_entity_id" ref="entity_value_domain"/>
     </record>
 
-    <!-- 「属性ドメイン」参照 -->
-    <record id="domain_reference_attribute_domain" model="ems.cdm.attribute_domain">
-        <field name="name">「属性ドメイン」参照</field>
-        <field name="description">属性ドメインへの参照を表すドメイン</field>
-        <field name="data_type">reference</field>
-        <field name="relation_entity_id" ref="entity_attribute_domain"/>
-    </record>
-
     <!-- 「システム」関連 -->
     <record id="domain_relation_system" model="ems.cdm.attribute_domain">
         <field name="name">「システム」関連</field>
@@ -101,22 +85,6 @@
         <field name="description">データドメインへの関連を表すドメイン</field>
         <field name="data_type">relation</field>
         <field name="relation_entity_id" ref="entity_data_domain"/>
-    </record>
-
-    <!-- 「オブジェクトクラス」参照 -->
-    <record id="domain_reference_object_class" model="ems.cdm.attribute_domain">
-        <field name="name">「オブジェクトクラス」参照</field>
-        <field name="description">オブジェクトクラスへの参照を表すドメイン</field>
-        <field name="data_type">reference</field>
-        <field name="relation_entity_id" ref="entity_object_class"/>
-    </record>
-
-    <!-- 「値ドメイン」参照 -->
-    <record id="domain_reference_value_domain" model="ems.cdm.attribute_domain">
-        <field name="name">「値ドメイン」参照</field>
-        <field name="description">値ドメインへの参照を表すドメイン</field>
-        <field name="data_type">reference</field>
-        <field name="relation_entity_id" ref="entity_value_domain"/>
     </record>
 
 </odoo>
