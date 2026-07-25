@@ -12,6 +12,14 @@
                             string="UML生成"
                             type="object"
                             class="btn-primary"/>
+                    <button name="generate_uml"
+                            string="UML（note あり）"
+                            type="object"
+                            context="{'generate_note': True}"/>
+                    <button name="generate_uml"
+                            string="UML（note なし）"
+                            type="object"
+                            context="{'generate_note': False}"/>
                     <button string="閉じる"
                             class="btn-secondary"
                             special="cancel"/>
