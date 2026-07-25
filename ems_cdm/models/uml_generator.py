@@ -54,6 +54,7 @@ class UmlGenerator(models.TransientModel):
         Attributes = self.env["ems.cdm.attribute"].search([])
         Domains = self.env["ems.cdm.attribute_domain"].search([])
         References = self.env["ems.cdm.entity_reference"].search([])
+        Rules = self.env["ems.cdm.rule"].search([])
 
         lines = []
         lines.append("@startuml")
@@ -155,6 +156,69 @@ class UmlGenerator(models.TransientModel):
                 continue
 
             lines.append(f'"{left}" <.. "{right}"')
+
+        # ---------------------------------------------------------
+        # ルール（cdm.rule）を note として出力
+        # ---------------------------------------------------------
+        rule_counter = 0
+        for rule in Rules:
+            rule_counter += 1
+
+            # note の追加（別名）
+            note_name = f"note{rule_counter:03d}"
+            note_body = f"{rule.name}\n{rule.description}"
+            note = f'note "{note_body}" as {note_name}'.replace("\n", "\\n")
+
+            entity = rule.entity_id
+            subject_area = entity.subject_area_id
+            if subject_area:
+                # package で note を囲む
+                lines.append(f'package "{subject_area.name}" {{')
+                lines.append(f"   {note}")
+                lines.append("}")
+                # ダミーリンク
+                entity_name = f"{subject_area.name}.{entity.name}"
+            else:
+                # 通常 note
+                lines.append(note)
+                # ダミーリンク
+                entity_name = f"{entity.name}"
+
+            # 隠しリンク（吹き出しではなく、線にするため）
+            lines.append(f'{entity_name} .[hidden]. "{note_name}" : "(dummy link)"')
+
+            # -----------------------------------------------------
+            # note のリンク先エンティティを決定
+            # -----------------------------------------------------
+            targets = rule.target_attribute_ids
+
+            if not targets:
+                # RuleTarget が 0件 → rule.entity_id のみ
+                entity_list = [rule.entity_id]
+            else:
+                # RuleTarget が 1件以上 → target_attribute_ids の entity 全て
+                entity_list = list({
+                    attr.attribute_id.entity_id
+                    for attr in targets
+                    if attr.attribute_id
+                })
+
+            # -----------------------------------------------------
+            # ★ note は複数エンティティにリンクできる
+            # ★ ただし同一エンティティへのリンクは 1 回のみ
+            # -----------------------------------------------------
+            note_entity_links = set()
+            for entity in entity_list:
+                if entity.subject_area_id:
+                    entity_name = f"{entity.subject_area_id.name}.{entity.name}"
+                else:
+                    entity_name = entity.name
+
+                link_key = (note_name, entity_name)
+                
+                if link_key not in note_entity_links:
+                    lines.append(f'{entity_name} .. "{note_name}" : "{rule.name}"')
+                    note_entity_links.add(link_key)
 
         lines.append("@enduml")
 
