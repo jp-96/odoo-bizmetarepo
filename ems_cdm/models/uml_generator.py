@@ -71,6 +71,7 @@ class UmlGenerator(models.TransientModel):
 
             lines.append(f'entity "{entity_name}" {{')
 
+            # 属性
             entity_attributes = Attributes.filtered(lambda i: i.entity_id.id == entity.id)
             for attribute in entity_attributes:
                 domain = attribute.domain_id
@@ -86,6 +87,44 @@ class UmlGenerator(models.TransientModel):
                         lines.append(f'  {attribute.name} : {domain_name}')
                 else:
                     lines.append(f'  {attribute.name}')
+
+            # ルール
+            for rule in Rules:
+                if rule.entity_id.id != entity.id:
+                    continue  # 代表エンティティ以外には追加しない
+
+                # ---------------------------------------------------------
+                # メソッド引数の生成
+                # ---------------------------------------------------------
+                targets = rule.target_attribute_ids
+                args = []
+
+                for target in targets:
+                    attr = target.attribute_id
+                    attr_entity = attr.entity_id
+
+                    # 属性の修飾名を決定
+                    if attr_entity.id == entity.id:
+                        # 代表エンティティの属性 → 修飾なし
+                        arg_name = attr.name
+                    else:
+                        # 別エンティティの属性 → エンティティ名で修飾
+                        if attr_entity.subject_area_id and attr_entity.subject_area_id.id != entity.subject_area_id.id:
+                            arg_name = f"{attr_entity.subject_area_id.name}.{attr_entity.name}.{attr.name}"
+                        else:
+                            arg_name = f"{attr_entity.name}.{attr.name}"
+
+                    args.append(arg_name)
+
+                # 引数リストをカンマ区切りに
+                args_text = ", ".join(args)
+
+                # ---------------------------------------------------------
+                # メソッド追加
+                # ---------------------------------------------------------
+                lines.append(f'  - {rule.name}({args_text})')
+
+
 
             lines.append("}")
 
