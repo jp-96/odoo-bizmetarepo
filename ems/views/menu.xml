@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- EMS メインメニュー -->
+    <menuitem id="menu_ems_root"
+              name="EMS"
+              sequence="10"/>
+
+    <!-- CDM（概念モデル） -->
+    <menuitem id="menu_ems_cdm"
+              name="概念モデル（CDM）"
+              parent="menu_ems_root"
+              sequence="20"/>
+
+    <menuitem id="menu_ems_cdm_entity"
+              name="エンティティ"
+              parent="menu_ems_cdm"
+              action="ems_cdm.action_entity"/>
+
+    <menuitem id="menu_ems_cdm_entity_reference"
+              name="エンティティ参照"
+              parent="menu_ems_cdm"
+              action="ems_cdm.action_entity_reference"/>
+
+    <menuitem id="menu_ems_cdm_attribute"
+              name="属性"
+              parent="menu_ems_cdm"
+              action="ems_cdm.action_attribute"/>
+
+    <menuitem id="menu_ems_cdm_attribute_domain"
+              name="属性ドメイン"
+              parent="menu_ems_cdm"
+              action="ems_cdm.action_attribute_domain"/>
+
+    <menuitem id="menu_ems_cdm_subject_area"
+              name="サブジェクト領域"
+              parent="menu_ems_cdm"
+              action="ems_cdm.action_subject_area"/>
+
+    <menuitem id="menu_ems_cdm_rule"
+              name="ルール"
+              parent="menu_ems_cdm"
+              action="ems_cdm.action_rule"/>
+
+    <menuitem id="menu_ems_cdm_rule_target"
+              name="ルール対象"
+              parent="menu_ems_cdm"
+              action="ems_cdm.action_rule_target"/>
+
+    <menuitem id="menu_ems_cdm_uml_generator"
+              name="UML 生成"
+              parent="menu_ems_cdm"
+              action="ems_cdm.action_uml_generator"/>
+
+    <!-- LDM（論理モデル） -->
+    <menuitem id="menu_ems_ldm"
+              name="論理モデル（LDM）"
+              parent="menu_ems_root"
+              sequence="30"/>
+
+    <!-- PDM（物理モデル＋Odoo実装） -->
+    <menuitem id="menu_ems_pdm"
+              name="物理モデル（PDM / Odoo）"
+              parent="menu_ems_root"
+              sequence="40"/>
+
+</odoo>

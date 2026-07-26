@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="view_rule_target_form" model="ir.ui.view">
+        <field name="name">ems.cdm.rule.target.form</field>
+        <field name="model">ems.cdm.rule.target</field>
+        <field name="arch" type="xml">
+            <form string="ルール対象属性">
+                <sheet>
+                    <group>
+                        <field name="rule_id"/>
+                        <field name="attribute_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_rule_target_list" model="ir.ui.view">
+        <field name="name">ems.cdm.rule.target.list</field>
+        <field name="model">ems.cdm.rule.target</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="rule_id"/>
+                <field name="attribute_id"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- アクション -->
+    <record id="action_rule_target" model="ir.actions.act_window">
+        <field name="name">ルール</field>
+        <field name="res_model">ems.cdm.rule.target</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- エンティティ：リストビュー -->
+    <record id="view_entity_list" model="ir.ui.view">
+        <field name="name">ems.cdm.entity.list</field>
+        <field name="model">ems.cdm.entity</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="subject_area_id"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- エンティティ：フォームビュー -->
+    <record id="view_entity_form" model="ir.ui.view">
+        <field name="name">ems.cdm.entity.form</field>
+        <field name="model">ems.cdm.entity</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="subject_area_id"/>
+                    </group>
+
+                    <notebook>
+                        <page string="属性">
+                            <field name="attribute_ids">
+                                <list editable="bottom" default_order="sequence">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="name"/>
+                                    <field name="domain_id"/>
+                                </list>
+                            </field>
+                        </page>
+
+                        <!-- ルールタブ -->
+                        <page string="ルール（編集）">
+                            <field name="rule_ids">
+                                <list default_order="sequence">
+                                    <field name="name"/>
+                                    <field name="description"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="ルール（順序）">
+                            <field name="rule_ids">
+                                <list editable="bottom" create="false" delete="false" default_order="sequence">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="name" readonly="1"/>
+                                    <field name="description" readonly="1"/>
+                                </list>
+                            </field>
+                        </page>
+
+                        <!-- 参照リンクタブ -->
+                        <page string="参照リンク">
+                            <field name="reference_ids">
+                                <list editable="bottom">
+                                    <field name="target_entity_id"/>
+                                </list>
+                            </field>
+                        </page>
+
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- アクション -->
+    <record id="action_entity" model="ir.actions.act_window">
+        <field name="name">エンティティ</field>
+        <field name="res_model">ems.cdm.entity</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>

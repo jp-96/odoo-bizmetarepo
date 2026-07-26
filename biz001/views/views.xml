@@ -1,0 +1,209 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="biz001.list">
+      <field name="name">biz001 list</field>
+      <field name="model">biz001.biz001</field>
+      <field name="arch" type="xml">
+        <list>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </list>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="biz001.action_window">
+      <field name="name">biz001 window</field>
+      <field name="res_model">biz001.biz001</field>
+      <field name="view_mode">list,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="biz001.action_server">
+      <field name="name">biz001 server</field>
+      <field name="model_id" ref="model_biz001_biz001"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "list,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="biz001" id="biz001.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="biz001.menu_1" parent="biz001.menu_root"/>
+    <menuitem name="Menu 2" id="biz001.menu_2" parent="biz001.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="biz001.menu_1_list" parent="biz001.menu_1"
+              action="biz001.action_window"/>
+    <menuitem name="Server to list" id="biz001" parent="biz001.menu_2"
+              action="biz001.action_server"/>
+-->
+
+
+    <!-- ========================================================= -->
+    <!-- データモデル：ツリー & フォームビュー -->
+    <!-- ========================================================= -->
+    <record id="view_biz001_data_model_list" model="ir.ui.view">
+        <field name="name">biz001.data_model.list</field>
+        <field name="model">biz001.data_model</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_biz001_data_model_form" model="ir.ui.view">
+        <field name="name">biz001.data_model.form</field>
+        <field name="model">biz001.data_model</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+
+                    <notebook>
+                        <page string="データ項目">
+                            <field name="item_ids">
+                                <list editable="bottom">
+                                    <field name="name"/>
+                                    <field name="data_type"/>
+                                    <field name="domain_id"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_biz001_data_model" model="ir.actions.act_window">
+        <field name="name">データモデル</field>
+        <field name="res_model">biz001.data_model</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- ========================================================= -->
+    <!-- データ項目：ツリー & フォームビュー -->
+    <!-- ========================================================= -->
+    <record id="view_biz001_data_item_list" model="ir.ui.view">
+        <field name="name">biz001.data_item.list</field>
+        <field name="model">biz001.data_item</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="data_type"/>
+                <field name="model_id"/>
+                <field name="domain_id"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_biz001_data_item_form" model="ir.ui.view">
+        <field name="name">biz001.data_item.form</field>
+        <field name="model">biz001.data_item</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="data_type"/>
+                        <field name="model_id"/>
+                        <field name="domain_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_biz001_data_item" model="ir.actions.act_window">
+        <field name="name">データ項目</field>
+        <field name="res_model">biz001.data_item</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- ========================================================= -->
+    <!-- データドメイン：ツリー & フォームビュー -->
+    <!-- ========================================================= -->
+    <record id="view_biz001_data_domain_list" model="ir.ui.view">
+        <field name="name">biz001.data_domain.list</field>
+        <field name="model">biz001.data_domain</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="description"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_biz001_data_domain_form" model="ir.ui.view">
+        <field name="name">biz001.data_domain.form</field>
+        <field name="model">biz001.data_domain</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="description"/>
+                    </group>
+
+                    <notebook>
+                        <page string="関連データ項目">
+                            <field name="item_ids">
+                                <list>
+                                    <field name="model_id"/>
+                                    <field name="name"/>
+                                    <field name="data_type"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_biz001_data_domain" model="ir.actions.act_window">
+        <field name="name">データドメイン</field>
+        <field name="res_model">biz001.data_domain</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- ========================================================= -->
+    <!-- メニュー構成 -->
+    <!-- ========================================================= -->
+    <menuitem id="menu_biz001_root" name="biz001 管理"/>
+
+    <menuitem id="menu_biz001_model" name="データモデル" parent="menu_biz001_root"
+              action="action_biz001_data_model"/>
+
+    <menuitem id="menu_biz001_item" name="データ項目" parent="menu_biz001_root"
+              action="action_biz001_data_item"/>
+
+    <menuitem id="menu_biz001_domain" name="データドメイン" parent="menu_biz001_root"
+              action="action_biz001_data_domain"/>
+
+
+  </data>
+</odoo>
