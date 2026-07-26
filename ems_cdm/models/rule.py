@@ -4,13 +4,15 @@ from odoo import models, fields
 class Rule(models.Model):
     _name = 'ems.cdm.rule'
     _description = 'ルール'
+    _order = "sequence, name"
 
-    name = fields.Char(string='ルール名', required=True)
+    name = fields.Char(string='名称', required=True)
+    sequence = fields.Integer(string="順番", default=10)
     description = fields.Text(string='概要')
 
     entity_id = fields.Many2one(
         'ems.cdm.entity',
-        string='代表エンティティ',
+        string='エンティティ',
         required=True
     )
 

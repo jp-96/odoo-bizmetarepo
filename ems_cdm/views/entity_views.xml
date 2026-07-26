@@ -28,9 +28,29 @@
                     <notebook>
                         <page string="属性">
                             <field name="attribute_ids">
-                                <list editable="bottom">
+                                <list editable="bottom" default_order="sequence">
+                                    <field name="sequence" widget="handle"/>
                                     <field name="name"/>
                                     <field name="domain_id"/>
+                                </list>
+                            </field>
+                        </page>
+
+                        <!-- ルールタブ -->
+                        <page string="ルール（編集）">
+                            <field name="rule_ids">
+                                <list default_order="sequence">
+                                    <field name="name"/>
+                                    <field name="description"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="ルール（順序）">
+                            <field name="rule_ids">
+                                <list editable="bottom" create="false" delete="false" default_order="sequence">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="name" readonly="1"/>
+                                    <field name="description" readonly="1"/>
                                 </list>
                             </field>
                         </page>

@@ -4,6 +4,7 @@ from odoo import models, fields
 class Entity(models.Model):
     _name = "ems.cdm.entity"
     _description = "エンティティ"
+    _order = "name"
 
     name = fields.Char(string="名称", required=True)
 
@@ -16,6 +17,12 @@ class Entity(models.Model):
         "ems.cdm.attribute",
         "entity_id",
         string="属性",
+    )
+
+    rule_ids = fields.One2many(
+        "ems.cdm.rule",
+        "entity_id",
+        string="ルール",
     )
 
     reference_ids = fields.One2many(

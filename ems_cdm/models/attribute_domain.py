@@ -5,6 +5,7 @@ from odoo.exceptions import ValidationError
 class AttributeDomain(models.Model):
     _name = "ems.cdm.attribute_domain"
     _description = "属性ドメイン"
+    _order = "name"
 
     name = fields.Char(string="名称", required=True)
     description = fields.Text(string="説明")

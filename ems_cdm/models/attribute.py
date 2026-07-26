@@ -4,8 +4,10 @@ from odoo import models, fields
 class Attribute(models.Model):
     _name = "ems.cdm.attribute"
     _description = "属性"
+    _order = "sequence, name"
 
     name = fields.Char(string="名称", required=True)
+    sequence = fields.Integer(string="順番", default=10)
 
     entity_id = fields.Many2one(
         "ems.cdm.entity",

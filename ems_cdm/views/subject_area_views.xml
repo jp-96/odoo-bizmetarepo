@@ -6,7 +6,8 @@
         <field name="name">ems.cdm.subject_area.list</field>
         <field name="model">ems.cdm.subject_area</field>
         <field name="arch" type="xml">
-            <list>
+            <list string="サブジェクト領域" editable="bottom" default_order="sequence">
+                <field name="sequence" widget="handle"/>
                 <field name="name"/>
             </list>
         </field>
