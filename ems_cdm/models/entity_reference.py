@@ -8,13 +8,13 @@ class EntityReference(models.Model):
 
     source_entity_id = fields.Many2one(
         "ems.cdm.entity",
-        string="参照元エンティティ",
+        string="エンティティ",
         required=True,
     )
 
     target_entity_id = fields.Many2one(
         "ems.cdm.entity",
-        string="参照先エンティティ",
+        string="参照先",
         required=True,
     )
 
