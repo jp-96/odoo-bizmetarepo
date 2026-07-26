@@ -1,0 +1,50 @@
+{
+    'name': "ems_cdm",
+
+    'summary': "Short (1 phrase/line) summary of the module's purpose",
+
+    'description': """
+Long description of module's purpose
+    """,
+
+    'author': "My Company",
+    'website': "https://www.yourcompany.com",
+
+    # Categories can be used to filter modules in modules listing
+    # Check https://github.com/odoo/odoo/blob/15.0/odoo/addons/base/data/ir_module_category_data.xml
+    # for the full list
+    'category': 'Uncategorized',
+    'version': '0.1',
+
+    # any module necessary for this one to work correctly
+    'depends': ['base'],
+
+    # always loaded
+    'data': [
+        'security/ir.model.access.csv',
+        'views/views.xml',
+        'views/templates.xml',
+        'views/subject_area_views.xml',
+        'views/entity_views.xml',
+        'views/entity_reference_views.xml',
+        'views/attribute_domain_views.xml',
+        'views/attribute_views.xml',
+        'views/rule_views.xml',
+        'views/rule_target_views.xml',
+        'views/uml_generator_views.xml',
+        # TODO: delete the data after testing
+        'data/subject_area_data.xml',
+        'data/entity_data.xml',
+        'data/attribute_domain_data.xml',
+        'data/attribute_data.xml',
+    ],
+    # only loaded in demonstration mode
+    'demo': [
+        'demo/demo.xml',
+        # 'demo/subject_area_demo.xml',
+        # 'demo/entity_demo.xml',
+        # 'demo/attribute_domain_demo.xml',
+        # 'demo/attribute_demo.xml',
+    ],
+}
+

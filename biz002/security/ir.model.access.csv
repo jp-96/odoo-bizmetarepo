@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_biz002_data_model,biz002.data_model,model_biz002_data_model,base.group_user,1,1,1,1
+access_biz002_data_item,biz002.data_item,model_biz002_data_item,base.group_user,1,1,1,1
+access_biz002_data_domain,biz002.data_domain,model_biz002_data_domain,base.group_user,1,1,1,1
+access_biz002_uml_generator,biz002.uml_generator,model_biz002_uml_generator,base.group_user,1,1,1,0

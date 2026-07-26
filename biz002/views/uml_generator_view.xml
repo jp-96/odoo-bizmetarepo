@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- UML 生成ウィザード -->
+    <record id="view_biz002_uml_generator_form" model="ir.ui.view">
+        <field name="name">biz002.uml_generator.form</field>
+        <field name="model">biz002.uml_generator</field>
+        <field name="arch" type="xml">
+            <form string="UML Generator">
+                <footer>
+                    <button name="generate_uml"
+                            string="UML生成"
+                            type="object"
+                            class="btn-primary"/>
+                    <button string="閉じる"
+                            class="btn-secondary"
+                            special="cancel"/>
+                </footer>
+
+                <group>
+                    <field name="uml_text"
+                           nolabel="1"
+                           readonly="1"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <!-- アクション -->
+    <record id="action_biz002_uml_generator" model="ir.actions.act_window">
+        <field name="name">UML 生成</field>
+        <field name="res_model">biz002.uml_generator</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <!-- メニュー -->
+    <menuitem id="menu_biz002_uml"
+              name="UML 生成"
+              parent="menu_biz002_root"
+              action="action_biz002_uml_generator"/>
+
+</odoo>

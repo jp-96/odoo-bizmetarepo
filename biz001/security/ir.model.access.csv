@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_biz001_data_model,biz001.data_model,model_biz001_data_model,base.group_user,1,1,1,1
+access_biz001_data_item,biz001.data_item,model_biz001_data_item,base.group_user,1,1,1,1
+access_biz001_data_domain,biz001.data_domain,model_biz001_data_domain,base.group_user,1,1,1,1
