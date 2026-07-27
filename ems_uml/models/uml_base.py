@@ -1,10 +1,14 @@
-from odoo import models, fields, api
+from odoo import models, fields
 import zlib
 import base64
 import requests
 import logging
+
 _logger = logging.getLogger(__name__)
 
+# ---------------------------------------------------------
+# PlantUML エンコード（共通）
+# ---------------------------------------------------------
 plantuml_alphabet = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-_"
 
 def _encode_6bit(b):
@@ -34,45 +38,29 @@ def plantuml_encode(text):
     return "".join(res)
 
 
-class UmlGenerator(models.TransientModel):
-    _name = "ems.ldm.uml_generator"
-    _description = "ems.ldm UML Generator"
+# ---------------------------------------------------------
+# 抽象基底クラス
+# ---------------------------------------------------------
+class BaseUmlGenerator(models.TransientModel):
+    # _name = "ems.uml.base_generator"
+    _description = "Base UML Generator"
+    # _abstract = True
 
     uml_text = fields.Text(string="UML（編集可能）")
     uml_png_url = fields.Char(string="PNG URL")
     uml_png = fields.Binary(string="UML PNG")
 
+    # ---------------------------------------------------------
+    # サブクラスが実装するメソッド
+    # ---------------------------------------------------------
+    def build_uml_lines(self):
+        raise NotImplementedError("Subclasses must implement build_uml_lines()")
+
+    # ---------------------------------------------------------
+    # 共通 UML 生成処理
+    # ---------------------------------------------------------
     def generate_uml(self):
-        ObjectClasses = self.env["ems.ldm.object_class"].search([])
-        DataElements = self.env["ems.ldm.data_element"].search([])
-        ValueDomains = self.env["ems.ldm.value_domain"].search([])
-
-        lines = []
-        lines.append("@startuml")
-
-        # ---------------------------------------------------------
-        # ObjectClass → entity
-        # ---------------------------------------------------------
-        for oc in ObjectClasses:
-            prefix = oc.system_id.name if oc.system_id else ""
-            entity_name = f"{prefix}.{oc.name}" if prefix else oc.name
-
-            lines.append(f'entity "{entity_name}" {{')
-
-            # ---------------------------------------------------------
-            # DataElement → 属性
-            # ---------------------------------------------------------
-            oc_elements = DataElements.filtered(lambda d: d.object_class_id.id == oc.id)
-
-            for de in oc_elements:
-                domain = de.value_domain_id
-                domain_name = domain.name if domain else "Unknown"
-                lines.append(f'  {de.name} : {domain_name}')
-
-            lines.append("}")
-
-        lines.append("@enduml")
-
+        lines = self.build_uml_lines()
         uml_text = "\n".join(lines)
         self.uml_text = uml_text
 
@@ -89,7 +77,7 @@ class UmlGenerator(models.TransientModel):
 
         return {
             "type": "ir.actions.act_window",
-            "res_model": "ems.ldm.uml_generator",
+            "res_model": self._name,
             "view_mode": "form",
             "target": "new",
             "res_id": self.id,

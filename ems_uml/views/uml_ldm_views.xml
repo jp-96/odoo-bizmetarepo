@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
 
-    <record id="view_uml_generator_form" model="ir.ui.view">
-        <field name="name">ems.ldm.uml_generator.form</field>
-        <field name="model">ems.ldm.uml_generator</field>
+    <!-- LDM UML Generator フォームビュー -->
+    <record id="view_uml_ldm_generator_form" model="ir.ui.view">
+        <field name="name">ems.uml.ldm_generator.form</field>
+        <field name="model">ems.uml.ldm_generator</field>
         <field name="arch" type="xml">
             <form string="LDM UML Generator">
 
@@ -44,9 +45,10 @@
         </field>
     </record>
 
-    <record id="action_uml_generator" model="ir.actions.act_window">
-        <field name="name">UML 生成</field>
-        <field name="res_model">ems.ldm.uml_generator</field>
+    <!-- LDM UML Generator アクション -->
+    <record id="action_ldm_generator" model="ir.actions.act_window">
+        <field name="name">LDM UML 生成</field>
+        <field name="res_model">ems.uml.ldm_generator</field>
         <field name="view_mode">form</field>
         <field name="target">new</field>
     </record>

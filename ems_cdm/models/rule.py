@@ -3,7 +3,7 @@ from odoo import models, fields
 
 class Rule(models.Model):
     _name = 'ems.cdm.rule'
-    _description = 'ルール'
+    _description = '概念モデル：ルール'
     _order = "sequence, name"
 
     name = fields.Char(string='名称', required=True)

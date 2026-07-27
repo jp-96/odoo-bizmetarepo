@@ -1,0 +1,43 @@
+<odoo>
+    <!-- ============================= -->
+    <!--  ConstraintTarget リストビュー -->
+    <!-- ============================= -->
+    <record id="view_constraint_target_list" model="ir.ui.view">
+        <field name="name">ems.ldm.constraint_target.list</field>
+        <field name="model">ems.ldm.constraint_target</field>
+        <field name="arch" type="xml">
+            <list string="制約対象">
+                <field name="constraint_id"/>
+                <field name="data_element_id"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- ============================= -->
+    <!--  ConstraintTarget フォームビュー -->
+    <!-- ============================= -->
+    <record id="view_constraint_target_form" model="ir.ui.view">
+        <field name="name">ems.ldm.constraint_target.form</field>
+        <field name="model">ems.ldm.constraint_target</field>
+        <field name="arch" type="xml">
+            <form string="制約対象">
+                <sheet>
+                    <group>
+                        <field name="constraint_id"/>
+                        <field name="data_element_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- ============================= -->
+    <!--  ConstraintTarget アクション     -->
+    <!-- ============================= -->
+    <record id="action_constraint_target" model="ir.actions.act_window">
+        <field name="name">制約対象</field>
+        <field name="res_model">ems.ldm.constraint_target</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>

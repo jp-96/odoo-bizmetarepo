@@ -1,0 +1,55 @@
+<odoo>
+    <!-- ============================= -->
+    <!--  Constraint リストビュー       -->
+    <!-- ============================= -->
+    <record id="view_constraint_list" model="ir.ui.view">
+        <field name="name">ems.ldm.constraint.list</field>
+        <field name="model">ems.ldm.constraint</field>
+        <field name="arch" type="xml">
+            <list string="制約">
+                <field name="name"/>
+                <field name="object_class_id"/>
+                <field name="rule_id"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- ============================= -->
+    <!--  Constraint フォームビュー     -->
+    <!-- ============================= -->
+    <record id="view_constraint_form" model="ir.ui.view">
+        <field name="name">ems.ldm.constraint.form</field>
+        <field name="model">ems.ldm.constraint</field>
+        <field name="arch" type="xml">
+            <form string="制約">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="object_class_id"/>
+                        <field name="rule_id"/>
+                    </group>
+
+                    <notebook>
+                        <page string="制約対象">
+                            <field name="target_ids">
+                                <list editable="bottom">
+                                    <field name="data_element_id"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- ============================= -->
+    <!--  Constraint アクション          -->
+    <!-- ============================= -->
+    <record id="action_constraint" model="ir.actions.act_window">
+        <field name="name">制約</field>
+        <field name="res_model">ems.ldm.constraint</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>

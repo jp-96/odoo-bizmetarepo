@@ -31,7 +31,6 @@ Long description of module's purpose
         'views/attribute_views.xml',
         'views/rule_views.xml',
         'views/rule_target_views.xml',
-        'views/uml_generator_views.xml',
         # TODO: delete the data after testing
         'data/subject_area_data.xml',
         'data/entity_data.xml',
@@ -41,10 +40,6 @@ Long description of module's purpose
     # only loaded in demonstration mode
     'demo': [
         'demo/demo.xml',
-        # 'demo/subject_area_demo.xml',
-        # 'demo/entity_demo.xml',
-        # 'demo/attribute_domain_demo.xml',
-        # 'demo/attribute_demo.xml',
     ],
 }
 

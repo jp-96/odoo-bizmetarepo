@@ -3,7 +3,7 @@ from odoo import models, fields
 
 class Entity(models.Model):
     _name = "ems.cdm.entity"
-    _description = "エンティティ"
+    _description = "概念モデル：エンティティ"
     _order = "name"
 
     name = fields.Char(string="名称", required=True)
