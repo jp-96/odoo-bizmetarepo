@@ -28,6 +28,8 @@ Long description of module's purpose
         'views/object_class_views.xml',
         'views/value_domain_views.xml',
         'views/data_element_views.xml',
+        'views/constraint_views.xml',
+        'views/constraint_target_views.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

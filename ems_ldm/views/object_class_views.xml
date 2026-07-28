@@ -31,14 +31,34 @@
                     <notebook>
                         <page string="データ要素">
                             <field name="data_element_ids">
-                                <list editable="bottom">
-                                    <field name="sequence"/>
+                                <list editable="bottom" default_order="sequence">
+                                    <field name="sequence" widget="handle"/>
                                     <field name="name"/>
                                     <field name="value_domain_id"/>
                                     <field name="attribute_id"/>
                                 </list>
                             </field>
                         </page>
+
+                        <!-- 制約タブ -->
+                        <page string="制約（編集）">
+                            <field name="constraint_ids">
+                                <list default_order="sequence">
+                                    <field name="name"/>
+                                    <field name="description"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="制約（順序）">
+                            <field name="constraint_ids">
+                                <list editable="bottom" create="false" delete="false" default_order="sequence">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="name" readonly="1"/>
+                                    <field name="description" readonly="1"/>
+                                </list>
+                            </field>
+                        </page>
+
                     </notebook>
                 </sheet>
             </form>

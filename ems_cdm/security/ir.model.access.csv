@@ -6,4 +6,3 @@ access_ems_cdm_attribute_domain,ems_cdm.attribute_domain,model_ems_cdm_attribute
 access_ems_cdm_attribute,ems_cdm.attribute,model_ems_cdm_attribute,base.group_user,1,1,1,1
 access_ems_cdm_rule,ems_cdm.rule,model_ems_cdm_rule,base.group_user,1,1,1,1
 access_ems_cdm_rule_target,ems_cdm.rule.target,model_ems_cdm_rule_target,base.group_user,1,1,1,1
-access_ems_cdm_uml_generator,ems_cdm.uml_generator,model_ems_cdm_uml_generator,base.group_user,1,1,1,1

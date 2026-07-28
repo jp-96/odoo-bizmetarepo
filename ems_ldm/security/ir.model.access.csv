@@ -3,3 +3,5 @@ access_ems_ldm_logical_system,ems_ldm.logical_system,model_ems_ldm_logical_syste
 access_ems_ldm_object_class,ems_ldm.object_class,model_ems_ldm_object_class,base.group_user,1,1,1,1
 access_ems_ldm_value_domain,ems_ldm.value_domain,model_ems_ldm_value_domain,base.group_user,1,1,1,1
 access_ems_ldm_data_element,ems_ldm.data_element,model_ems_ldm_data_element,base.group_user,1,1,1,1
+access_ems_ldm_constraint,ems_ldm.constraint,model_ems_ldm_constraint,base.group_user,1,1,1,1
+access_ems_ldm_constraint_target,ems_ldm.constraint_target,model_ems_ldm_constraint_target,base.group_user,1,1,1,1

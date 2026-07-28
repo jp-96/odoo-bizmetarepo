@@ -16,7 +16,8 @@
 
                     <group string="対象属性">
                         <field name="target_attribute_ids">
-                            <list editable="bottom">
+                            <list editable="bottom" default_order="sequence">
+                                <field name="sequence" widget="handle"/>
                                 <field name="attribute_id"/>
                             </list>
                         </field>

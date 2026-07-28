@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_ems_uml_cdm_generator,ems_uml_cdm_generator,model_ems_uml_cdm_generator,base.group_user,1,1,1,1
+access_ems_uml_ldm_generator,ems_uml_ldm_generator,model_ems_uml_ldm_generator,base.group_user,1,1,1,1

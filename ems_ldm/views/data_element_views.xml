@@ -8,7 +8,6 @@
         <field name="model">ems.ldm.data_element</field>
         <field name="arch" type="xml">
             <list string="データ要素">
-                <field name="sequence"/>
                 <field name="name"/>
                 <field name="object_class_id"/>
                 <field name="value_domain_id"/>
@@ -27,7 +26,6 @@
             <form string="データ要素">
                 <sheet>
                     <group>
-                        <field name="sequence"/>
                         <field name="name"/>
                     </group>
 

@@ -4,7 +4,7 @@ from odoo.exceptions import ValidationError
 
 class EntityReference(models.Model):
     _name = "ems.cdm.entity_reference"
-    _description = "エンティティ参照（備考リンク）"
+    _description = "概念モデル：エンティティ参照"
 
     source_entity_id = fields.Many2one(
         "ems.cdm.entity",
