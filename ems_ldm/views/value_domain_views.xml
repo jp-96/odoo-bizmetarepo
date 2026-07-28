@@ -31,16 +31,14 @@
 
                     <group>
                         <field name="data_type"/>
-                        <field name="relation_object_class_id"
-                               modifiers='{"invisible": [["data_type", "not in", ["extended", "relation"]]]}'/>
+                        <field name="relation_object_class_id"/>
 
                     </group>
 
                     <notebook>
                         <page string="データ要素">
                             <field name="data_element_ids">
-                                <list editable="bottom">
-                                    <field name="sequence"/>
+                                <list>
                                     <field name="name"/>
                                     <field name="object_class_id"/>
                                     <field name="attribute_id"/>

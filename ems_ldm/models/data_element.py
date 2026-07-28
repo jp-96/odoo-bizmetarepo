@@ -23,5 +23,4 @@ class DataElement(models.Model):
     attribute_id = fields.Many2one(
         "ems.cdm.attribute",
         string="属性",
-        required=True,
     )

@@ -18,3 +18,9 @@ class ObjectClass(models.Model):
         "object_class_id",
         string="データ要素"
     )
+
+    constraint_ids = fields.One2many(
+        "ems.ldm.constraint",
+        "object_class_id",
+        string="制約"
+    )
