@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- ============================= -->
+    <!--  リストビュー（Odoo 19）       -->
+    <!-- ============================= -->
+    <record id="view_object_class_list" model="ir.ui.view">
+        <field name="name">ems.ldm.object_class.list</field>
+        <field name="model">ems.ldm.object_class</field>
+        <field name="arch" type="xml">
+            <list string="オブジェクトクラス">
+                <field name="name"/>
+                <field name="system_id"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- ============================= -->
+    <!--  フォームビュー（Odoo 19）     -->
+    <!-- ============================= -->
+    <record id="view_object_class_form" model="ir.ui.view">
+        <field name="name">ems.ldm.object_class.form</field>
+        <field name="model">ems.ldm.object_class</field>
+        <field name="arch" type="xml">
+            <form string="オブジェクトクラス">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="system_id"/>
+                    </group>
+
+                    <notebook>
+                        <page string="データ要素">
+                            <field name="data_element_ids">
+                                <list editable="bottom" default_order="sequence">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="name"/>
+                                    <field name="value_domain_id"/>
+                                    <field name="attribute_id"/>
+                                </list>
+                            </field>
+                        </page>
+
+                        <!-- 制約タブ -->
+                        <page string="制約（編集）">
+                            <field name="constraint_ids">
+                                <list default_order="sequence">
+                                    <field name="name"/>
+                                    <field name="description"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="制約（順序）">
+                            <field name="constraint_ids">
+                                <list editable="bottom" create="false" delete="false" default_order="sequence">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="name" readonly="1"/>
+                                    <field name="description" readonly="1"/>
+                                </list>
+                            </field>
+                        </page>
+
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- ============================= -->
+    <!--  アクション                    -->
+    <!-- ============================= -->
+    <record id="action_object_class" model="ir.actions.act_window">
+        <field name="name">オブジェクトクラス</field>
+        <field name="res_model">ems.ldm.object_class</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>

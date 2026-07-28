@@ -3,7 +3,7 @@ from odoo import models, fields
 
 class Attribute(models.Model):
     _name = "ems.cdm.attribute"
-    _description = "属性"
+    _description = "概念モデル：属性"
     _order = "sequence, name"
 
     name = fields.Char(string="名称", required=True)

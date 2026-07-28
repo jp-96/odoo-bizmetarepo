@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- ============================= -->
+    <!--  リストビュー（Odoo 19）       -->
+    <!-- ============================= -->
+    <record id="view_value_domain_list" model="ir.ui.view">
+        <field name="name">ems.ldm.value_domain.list</field>
+        <field name="model">ems.ldm.value_domain</field>
+        <field name="arch" type="xml">
+            <list string="値ドメイン">
+                <field name="name"/>
+                <field name="data_type"/>
+                <field name="relation_object_class_id"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- ============================= -->
+    <!--  フォームビュー（Odoo 19）     -->
+    <!-- ============================= -->
+    <record id="view_value_domain_form" model="ir.ui.view">
+        <field name="name">ems.ldm.value_domain.form</field>
+        <field name="model">ems.ldm.value_domain</field>
+        <field name="arch" type="xml">
+            <form string="値ドメイン">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="description"/>
+                    </group>
+
+                    <group>
+                        <field name="data_type"/>
+                        <field name="relation_object_class_id"/>
+
+                    </group>
+
+                    <notebook>
+                        <page string="データ要素">
+                            <field name="data_element_ids">
+                                <list>
+                                    <field name="name"/>
+                                    <field name="object_class_id"/>
+                                    <field name="attribute_id"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- ============================= -->
+    <!--  アクション                    -->
+    <!-- ============================= -->
+    <record id="action_value_domain" model="ir.actions.act_window">
+        <field name="name">値ドメイン</field>
+        <field name="res_model">ems.ldm.value_domain</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>

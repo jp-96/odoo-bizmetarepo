@@ -3,7 +3,7 @@ from odoo import models, fields
 
 class SubjectArea(models.Model):
     _name = "ems.cdm.subject_area"
-    _description = "サブジェクト領域"
+    _description = "概念モデル：サブジェクト領域"
     _order = "sequence, name"
 
     name = fields.Char(string="名称", required=True)

@@ -47,16 +47,51 @@
               parent="menu_ems_cdm"
               action="ems_cdm.action_rule_target"/>
 
-    <menuitem id="menu_ems_cdm_uml_generator"
+    <menuitem id="menu_ems_uml_cdm_generator"
               name="UML 生成"
               parent="menu_ems_cdm"
-              action="ems_cdm.action_uml_generator"/>
+              action="ems_uml.action_cdm_generator"/>
 
     <!-- LDM（論理モデル） -->
     <menuitem id="menu_ems_ldm"
               name="論理モデル（LDM）"
               parent="menu_ems_root"
               sequence="30"/>
+              
+    <menuitem id="menu_ems_ldm_logical_system"
+              name="システム"
+              parent="menu_ems_ldm"
+              action="ems_ldm.action_logical_system"/>
+
+    <menuitem id="menu_ems_ldm_object_class"
+              name="オブジェクトクラス"
+              parent="menu_ems_ldm"
+              action="ems_ldm.action_object_class"/>
+
+    <menuitem id="menu_ems_ldm_value_domain"
+              name="値ドメイン"
+              parent="menu_ems_ldm"
+              action="ems_ldm.action_value_domain"/>
+              
+    <menuitem id="menu_ems_ldm_constraint"
+              name="制約"
+              parent="menu_ems_ldm"
+              action="ems_ldm.action_constraint"/>
+
+    <menuitem id="menu_ems_ldm_constraint_target"
+              name="制約対象"
+              parent="menu_ems_ldm"
+              action="ems_ldm.action_constraint_target"/>
+
+    <menuitem id="menu_ems_ldm_data_element"
+              name="データ要素"
+              parent="menu_ems_ldm"
+              action="ems_ldm.action_data_element"/>
+
+    <menuitem id="menu_ems_uml_ldm_generator"
+              name="UML 生成"
+              parent="menu_ems_ldm"
+              action="ems_uml.action_ldm_generator"/>
 
     <!-- PDM（物理モデル＋Odoo実装） -->
     <menuitem id="menu_ems_pdm"
