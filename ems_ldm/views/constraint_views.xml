@@ -34,7 +34,8 @@
                     <notebook>
                         <page string="制約対象">
                             <field name="target_ids">
-                                <list editable="bottom">
+                                <list editable="bottom" default_order="sequence">
+                                    <field name="sequence" widget="handle"/>
                                     <field name="data_element_id"/>
                                 </list>
                             </field>
