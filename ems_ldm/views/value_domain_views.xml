@@ -9,6 +9,8 @@
         <field name="arch" type="xml">
             <list string="値ドメイン">
                 <field name="name"/>
+                <field name="data_type"/>
+                <field name="relation_object_class_id"/>
             </list>
         </field>
     </record>
@@ -24,6 +26,14 @@
                 <sheet>
                     <group>
                         <field name="name"/>
+                        <field name="description"/>
+                    </group>
+
+                    <group>
+                        <field name="data_type"/>
+                        <field name="relation_object_class_id"
+                               modifiers='{"invisible": [["data_type", "not in", ["extended", "relation"]]]}'/>
+
                     </group>
 
                     <notebook>

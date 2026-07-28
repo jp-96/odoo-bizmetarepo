@@ -10,6 +10,7 @@
                 <field name="name"/>
                 <field name="object_class_id"/>
                 <field name="rule_id"/>
+                <field name="description"/>
             </list>
         </field>
     </record>
@@ -27,6 +28,7 @@
                         <field name="name"/>
                         <field name="object_class_id"/>
                         <field name="rule_id"/>
+                        <field name="description"/>
                     </group>
 
                     <notebook>

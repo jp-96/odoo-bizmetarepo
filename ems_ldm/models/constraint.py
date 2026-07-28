@@ -6,6 +6,7 @@ class Constraint(models.Model):
     _order = "name"
 
     name = fields.Char(string="名称", required=True)
+    description = fields.Text(string="説明")
 
     object_class_id = fields.Many2one(
         "ems.ldm.object_class",
