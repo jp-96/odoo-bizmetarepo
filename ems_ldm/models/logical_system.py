@@ -6,7 +6,7 @@ class LogicalSystem(models.Model):
     _order = "sequence, name"
 
     name = fields.Char(string="名称", required=True)
-    sequence = fields.Integer(string="表示順", default=10)
+    sequence = fields.Integer(string="順番", default=10)
 
     object_class_ids = fields.One2many(
         "ems.ldm.object_class",

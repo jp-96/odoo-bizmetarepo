@@ -8,7 +8,7 @@ class Rule(models.Model):
 
     name = fields.Char(string='名称', required=True)
     sequence = fields.Integer(string="順番", default=10)
-    description = fields.Text(string='概要')
+    description = fields.Text(string='説明')
 
     entity_id = fields.Many2one(
         'ems.cdm.entity',

@@ -32,10 +32,10 @@ Long description of module's purpose
         'views/rule_views.xml',
         'views/rule_target_views.xml',
         # TODO: delete the data after testing
-        'data/subject_area_data.xml',
-        'data/entity_data.xml',
-        'data/attribute_domain_data.xml',
-        'data/attribute_data.xml',
+        # 'data/subject_area_data.xml',
+        # 'data/entity_data.xml',
+        # 'data/attribute_domain_data.xml',
+        # 'data/attribute_data.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

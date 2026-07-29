@@ -1,4 +1,5 @@
-from odoo import models, fields
+from odoo import models, fields, api
+from odoo.exceptions import ValidationError
 
 class ValueDomain(models.Model):
     _name = "ems.ldm.value_domain"
@@ -27,7 +28,7 @@ class ValueDomain(models.Model):
     relation_object_class_id = fields.Many2one(
         "ems.ldm.object_class",
         string="関係先オブジェクトクラス",
-        help="データ型が 継承 / 関連 の場合、関係先のオブジェクトクラスを指定",
+        help="データ型（分類）が 継承 / 関連 の場合、関係先のオブジェクトクラスを指定",
     )
 
     data_element_ids = fields.One2many(
@@ -35,3 +36,11 @@ class ValueDomain(models.Model):
         "value_domain_id",
         string="データ要素"
     )
+
+    @api.constrains("data_type", "relation_object_class_id")
+    def _check_relation_object_class_required(self):
+        for rec in self:
+            if rec.data_type in ("extended", "relation") and not rec.relation_object_class_id:
+                raise ValidationError(
+                    "「データ型（分類）」が「継承」「関連」の場合、関係先オブジェクトクラスは必須です。"
+                )

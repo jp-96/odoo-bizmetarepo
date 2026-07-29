@@ -6,7 +6,7 @@ class Constraint(models.Model):
     _order = "sequence, name"
 
     name = fields.Char(string="名称", required=True)
-    sequence = fields.Integer(string="表示順", default=10)
+    sequence = fields.Integer(string="順番", default=10)
     description = fields.Text(string="説明")
 
     object_class_id = fields.Many2one(
