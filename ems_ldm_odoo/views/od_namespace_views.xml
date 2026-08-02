@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- ============================= -->
+    <!-- 1. List View (Odoo 19 対応) -->
+    <!-- ============================= -->
+    <record id="view_namespace_list" model="ir.ui.view">
+        <field name="name">ems.ldm.odoo.namespace.list</field>
+        <field name="model">ems.ldm.odoo.namespace</field>
+        <field name="arch" type="xml">
+            <list string="Odoo 名前空間" editable="bottom">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="odoo_namespace"/>
+                <field name="description"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- ============================= -->
+    <!-- 2. Form View -->
+    <!-- ============================= -->
+    <record id="view_namespace_form" model="ir.ui.view">
+        <field name="name">ems.ldm.odoo.namespace.form</field>
+        <field name="model">ems.ldm.odoo.namespace</field>
+        <field name="arch" type="xml">
+            <form string="Odoo 名前空間">
+                <sheet>
+                    <group>
+                        <field name="sequence"/>
+                        <field name="name"/>
+                        <field name="odoo_namespace"/>
+                        <field name="description"/>
+                    </group>
+
+                    <group string="オブジェクトクラス">
+                        <field name="object_class_ids">
+                            <list editable="bottom">
+                                <field name="name"/>
+                                <field name="technical_model_name"/>
+                            </list>
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- ============================= -->
+    <!-- 3. Action -->
+    <!-- ============================= -->
+    <record id="action_namespace" model="ir.actions.act_window">
+        <field name="name">Odoo 名前空間</field>
+        <field name="res_model">ems.ldm.odoo.namespace</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>

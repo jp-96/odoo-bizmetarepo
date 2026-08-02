@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- ============================= -->
+    <!-- 1. List View (Odoo 19 対応) -->
+    <!-- ============================= -->
+    <record id="view_field_domain_list" model="ir.ui.view">
+        <field name="name">ems.ldm.odoo.field_domain.list</field>
+        <field name="model">ems.ldm.odoo.field_domain</field>
+        <field name="arch" type="xml">
+            <list string="Odoo 項目ドメイン">
+                <field name="name"/>
+                <field name="data_type"/>
+                <field name="relation_object_class_id"/>
+                <field name="description"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- ============================= -->
+    <!-- 2. Form View -->
+    <!-- ============================= -->
+    <record id="view_field_domain_form" model="ir.ui.view">
+        <field name="name">ems.ldm.odoo.field_domain.form</field>
+        <field name="model">ems.ldm.odoo.field_domain</field>
+        <field name="arch" type="xml">
+            <form string="Odoo 項目ドメイン">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="data_type"/>
+                        <field name="relation_object_class_id"/>
+                        <field name="description"/>
+                    </group>
+
+                    <group string="定義（実装）">
+                        <field name="source_code"/>
+                    </group>
+
+                    <group string="関連する Odoo 項目">
+                        <field name="field_ids">
+                            <list>
+                                <field name="name"/>
+                                <field name="field_name"/>
+                                <field name="object_class_id"/>
+                            </list>
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- ============================= -->
+    <!-- 3. Action -->
+    <!-- ============================= -->
+    <record id="action_field_domain" model="ir.actions.act_window">
+        <field name="name">Odoo 項目ドメイン</field>
+        <field name="res_model">ems.ldm.odoo.field_domain</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>

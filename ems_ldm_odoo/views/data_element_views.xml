@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="view_data_element_list_extend" model="ir.ui.view">
+        <field name="name">ems.ldm.data_element.list.extend</field>
+        <field name="model">ems.ldm.data_element</field>
+        <field name="inherit_id" ref="ems_ldm.view_data_element_list"/>
+        <field name="arch" type="xml">
+
+            <!-- list の末尾に field_name を追加挿入 -->
+            <xpath expr="//list" position="inside">
+                <field name="field_name"/>
+            </xpath>
+
+        </field>
+    </record>
+
+    <record id="view_data_element_form_extend" model="ir.ui.view">
+        <field name="name">ems.ldm.data_element.form.extend</field>
+        <field name="model">ems.ldm.data_element</field>
+        <field name="inherit_id" ref="ems_ldm.view_data_element_form"/>
+        <field name="arch" type="xml">
+
+            <!-- 2番目の group に field_name を追加挿入 -->
+            <xpath expr="//sheet/group[2]" position="inside">
+                <field name="field_name"/>
+            </xpath>
+
+        </field>
+    </record>
+
+</odoo>
