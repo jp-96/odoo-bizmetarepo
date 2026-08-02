@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_ems_ldm_odoo_namespace,ems_ldm_odoo.namespace,model_ems_ldm_odoo_namespace,base.group_user,1,1,1,1
+access_ems_ldm_odoo_field_domain,ems_ldm_odoo.field_domain,model_ems_ldm_odoo_field_domain,base.group_user,1,1,1,1
+access_ems_ldm_odoo_field,ems_ldm_odoo.field,model_ems_ldm_odoo_field,base.group_user,1,1,1,1

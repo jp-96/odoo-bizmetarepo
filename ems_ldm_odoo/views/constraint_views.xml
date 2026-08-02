@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="view_constraint_form_extend" model="ir.ui.view">
+        <field name="name">ems.ldm.constraint.form.extend</field>
+        <field name="model">ems.ldm.constraint</field>
+
+        <!-- 既存ビューを継承 -->
+        <field name="inherit_id" ref="ems_ldm.view_constraint_form"/>
+
+        <field name="arch" type="xml">
+
+            <!-- notebook の末尾に新しいタブを追加 -->
+            <xpath expr="//notebook" position="inside">
+                <page string="定義（実装）">
+                    <field name="source_code"/>
+                </page>
+            </xpath>
+
+        </field>
+    </record>
+
+</odoo>

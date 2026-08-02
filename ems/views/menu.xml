@@ -93,10 +93,4 @@
               parent="menu_ems_ldm"
               action="ems_uml.action_ldm_generator"/>
 
-    <!-- PDM（物理モデル＋Odoo実装） -->
-    <menuitem id="menu_ems_pdm"
-              name="物理モデル（PDM / Odoo）"
-              parent="menu_ems_root"
-              sequence="40"/>
-
 </odoo>
