@@ -1,13 +1,12 @@
 from odoo import models, fields, api
 from odoo.exceptions import ValidationError
 
-class ValueDomain(models.Model):
-    _name = "ems.ldm.value_domain"
-    _description = "論理モデル：値ドメイン"
+class OdFieldDomain(models.Model):
+    _name = "ems.ldm.odoo.field_domain"
+    _description = "odoo：odoo項目ドメイン"
     _order = "name"
 
     name = fields.Char(string="名称", required=True)
-
     description = fields.Text(string="説明")
 
     data_type = fields.Selection(
@@ -31,10 +30,10 @@ class ValueDomain(models.Model):
         help="データ型（分類）が 継承 / 関連 の場合、関係先のオブジェクトクラスを指定",
     )
 
-    data_element_ids = fields.One2many(
-        "ems.ldm.data_element",
-        "value_domain_id",
-        string="データ要素"
+    field_ids = fields.One2many(
+        "ems.ldm.odoo.field",
+        "field_domain_id",
+        string="Odoo項目"
     )
 
     @api.constrains("data_type", "relation_object_class_id")
@@ -44,3 +43,9 @@ class ValueDomain(models.Model):
                 raise ValidationError(
                     "「データ型（分類）」が「継承」「関連」の場合、関係先オブジェクトクラスは必須です。"
                 )
+
+    source_code = fields.Text(
+            string="定義",
+            help="odoo項目ドメインの実装コードを記述（例：fields.Char(string='名称', required=True)）"
+        )
+    

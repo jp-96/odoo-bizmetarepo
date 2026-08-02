@@ -28,7 +28,7 @@ class AttributeDomain(models.Model):
     relation_entity_id = fields.Many2one(
         "ems.cdm.entity",
         string="関係先エンティティ",
-        help="データ型が 継承 / 関連 の場合、関係先のエンティティを指定",
+        help="データ型（分類）が 継承 / 関連 の場合、関係先のエンティティを指定",
     )
 
     attribute_ids = fields.One2many(

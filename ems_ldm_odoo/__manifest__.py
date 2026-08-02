@@ -1,5 +1,5 @@
 {
-    'name': "ems_cdm",
+    'name': "ems_ldm_odoo",
 
     'summary': "Short (1 phrase/line) summary of the module's purpose",
 
@@ -17,25 +17,20 @@ Long description of module's purpose
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base'],
+    'depends': ['base', 'ems', 'ems_ldm'],
 
     # always loaded
     'data': [
         'security/ir.model.access.csv',
+        'views/object_class_views.xml',
+        'views/data_element_views.xml',
+        'views/value_domain_views.xml',
+        'views/constraint_views.xml',
+        'views/od_namespace_views.xml',
+        'views/od_field_domain_views.xml',
+        'views/od_field_views.xml',
         'views/views.xml',
         'views/templates.xml',
-        'views/subject_area_views.xml',
-        'views/entity_views.xml',
-        'views/entity_reference_views.xml',
-        'views/attribute_domain_views.xml',
-        'views/attribute_views.xml',
-        'views/rule_views.xml',
-        'views/rule_target_views.xml',
-        # TODO: delete the data after testing
-        # 'data/subject_area_data.xml',
-        # 'data/entity_data.xml',
-        # 'data/attribute_domain_data.xml',
-        # 'data/attribute_data.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

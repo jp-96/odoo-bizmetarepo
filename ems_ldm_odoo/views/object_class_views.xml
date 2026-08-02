@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- ================================================= -->
+    <!-- ObjectClass フォームビュー拡張（１つの record） -->
+    <!-- ================================================= -->
+    <record id="view_object_class_form_extend" model="ir.ui.view">
+        <field name="name">ems.ldm.object_class.form.extend</field>
+        <field name="model">ems.ldm.object_class</field>
+        <field name="inherit_id" ref="ems_ldm.view_object_class_form"/>
+        <field name="arch" type="xml">
+
+            <!-- sheet 内の group にフィールドを追加 -->
+            <xpath expr="//sheet/group" position="inside">
+                <field name="namespace_id"/>
+                <field name="model_name"/>
+                <field name="technical_model_name" readonly="1"/>
+            </xpath>
+
+            <!-- name の直後に field_name を挿入 -->
+            <xpath expr="//field[@name='data_element_ids']/list/field[@name='name']"
+                   position="after">
+                <field name="field_name"/>
+            </xpath>
+            
+            <!-- notebook の末尾に Odooフィールドタブを追加 -->
+            <xpath expr="//notebook" position="inside">
+                <page string="Odooフィールド">
+                    <field name="field_ids">
+                        <list editable="bottom" default_order="sequence">
+                            <field name="sequence" widget="handle"/>
+                            <field name="name"/>
+                            <field name="field_name"/>
+                            <field name="field_domain_id"/>
+                        </list>
+                    </field>
+                </page>
+            </xpath>
+
+        </field>
+    </record>
+
+</odoo>
